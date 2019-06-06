@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="status" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,27 +35,27 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "id"
+    "status"
 })
-@XmlRootElement(name = "GetCourseDetailsRequest")
-public class GetCourseDetailsRequest {
+@XmlRootElement(name = "DeleteCourseDetailsResponse")
+public class DeleteCourseDetailsResponse {
 
-    protected int id;
+    protected int status;
 
     /**
-     * Gets the value of the id property.
+     * Gets the value of the status property.
      * 
      */
-    public int getId() {
-        return id;
+    public int getStatus() {
+        return status;
     }
 
     /**
-     * Sets the value of the id property.
+     * Sets the value of the status property.
      * 
      */
-    public void setId(int value) {
-        this.id = value;
+    public void setStatus(int value) {
+        this.status = value;
     }
 
 }
