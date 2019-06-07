@@ -10,6 +10,7 @@ import com.sand.courses.GetAllCourseDetailsResponse;
 import com.sand.courses.GetCourseDetailsRequest;
 import com.sand.courses.GetCourseDetailsResponse;
 import com.sand.courses.Status;
+import com.sand.soapwebservices.soap.exception.CourseNotFoundException;
 import com.sand.soapwebservices.soap.bean.Course;
 import com.sand.soapwebservices.soap.service.CourseDetailsService;
 
@@ -33,7 +34,11 @@ public class CourseDetailsEndpoint
   {
 
     Course course = courseDetailsService.findById(courseDetailsRequest.getId());
-    return mapToCourseDetailsResponse(course);
+    if (course != null) {
+      return mapToCourseDetailsResponse(course);
+    } else {
+      throw new CourseNotFoundException("Invalid course Id " + courseDetailsRequest.getId());
+    }
   }
 
   @PayloadRoot(namespace = "http://com/sand/courses", localPart = "GetAllCourseDetailsRequest")
