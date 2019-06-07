@@ -9,6 +9,7 @@ import com.sand.courses.GetAllCourseDetailsRequest;
 import com.sand.courses.GetAllCourseDetailsResponse;
 import com.sand.courses.GetCourseDetailsRequest;
 import com.sand.courses.GetCourseDetailsResponse;
+import com.sand.courses.Status;
 import com.sand.soapwebservices.soap.bean.Course;
 import com.sand.soapwebservices.soap.service.CourseDetailsService;
 
@@ -53,7 +54,8 @@ public class CourseDetailsEndpoint
           DeleteCourseDetailsRequest deleteCourseDetailsRequest)
   {
     DeleteCourseDetailsResponse deleteCourseDetailsResponse = new DeleteCourseDetailsResponse();
-    deleteCourseDetailsResponse.setStatus(courseDetailsService.deleteById(deleteCourseDetailsRequest.getId()));
+    deleteCourseDetailsResponse
+        .setStatus(Status.valueOf(courseDetailsService.deleteById(deleteCourseDetailsRequest.getId()).name()));
     return deleteCourseDetailsResponse;
   }
 
